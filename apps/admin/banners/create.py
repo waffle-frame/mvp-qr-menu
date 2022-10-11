@@ -37,4 +37,4 @@ def create_banner(place_id, place):
         place = place_id
     ).save()
 
-    return jsonify({"message": "OK"}), 201
+    return jsonify(), 201

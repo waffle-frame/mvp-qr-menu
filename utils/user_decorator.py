@@ -9,7 +9,9 @@ def check_user_permission():
     def wrapper(fn):
         def decorator(*args, **kwargs):
             verify_jwt_in_request()
-            place = Places.get_or_none(name=kwargs.get('place'))
+            place = Places.get_or_none(name=kwargs.get("place"))
+            if place is None:
+                return error_response("permission_denied")
 
             claims = get_jwt()
 

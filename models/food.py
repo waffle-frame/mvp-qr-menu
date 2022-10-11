@@ -1,11 +1,13 @@
 from peewee import *
 
-from models.base import BaseModel
 from models.places import Places
+from models.base import BaseModel
 
 # Категории еды
 class FoodCategories(BaseModel):
     name = CharField()
+    hide = BooleanField(default=False)
+    position = IntegerField()
     place = ForeignKeyField(Places)
 
 # Еда
@@ -16,7 +18,7 @@ class Food(BaseModel):
     time_for_preparing = FloatField()
     weight = IntegerField()
     price = FloatField()
-    hide = BooleanField()
+    hide = BooleanField(default=False)
     position = IntegerField()
 
 # Промежуточная таблица

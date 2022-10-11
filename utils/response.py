@@ -1,6 +1,7 @@
 dict_of_errors = {
     "place_not_found": ("place not found", 404),
     "banner_not_found": ("banner not found", 404),
+    "food_category_not_found": ("category not found", 404),
     "bad_request": ("bad request", 400),
     "wrong_data": ("wrong username or password", 401),
     "permission_denied": ("permission denied", 403),
