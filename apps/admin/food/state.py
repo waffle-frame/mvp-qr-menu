@@ -9,7 +9,7 @@ from utils.user_decorator import check_user_permission
 
 
 @check_user_permission()
-def show_banner(place_id):
+def show_banner(place_id, place):
     banner_id = request.args.get("id") or None
     if banner_id is None:
         return error_response("bad_request")
@@ -25,7 +25,7 @@ def show_banner(place_id):
 
 #
 @check_user_permission()
-def hide_banner(place_id):
+def hide_banner(place_id, place):
     banner_id = request.args.get("id") or None
     if banner_id is None:
         return error_response("bad_request")
@@ -41,7 +41,7 @@ def hide_banner(place_id):
 
 # 
 @check_user_permission()
-def position_banner(place_id):
+def position_banner(place_id, place):
     item_1 = request.args.get("item_1") or None
     item_2 = request.args.get("item_2") or None
 

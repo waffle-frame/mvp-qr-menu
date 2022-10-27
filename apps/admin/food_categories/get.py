@@ -8,7 +8,7 @@ from utils.user_decorator import check_user_permission
 
 
 @check_user_permission()
-def get_categories_list(place_id, place):
+def get_categories_list(place_id):
     categories_list = FoodCategories.select().where(
         FoodCategories.place==place_id,
         FoodCategories.hide==False

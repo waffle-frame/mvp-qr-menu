@@ -8,7 +8,7 @@ from utils.user_decorator import check_user_permission
 
 
 @check_user_permission()
-def show_category(place_id, place):
+def show_category(place_id):
     category_id = request.args.get("id") or None
     if category_id is None:
         return error_response("bad_request")
@@ -24,7 +24,7 @@ def show_category(place_id, place):
 
 #
 @check_user_permission()
-def hide_category(place_id, place):
+def hide_category(place_id):
     category_id = request.args.get("id") or None
     if category_id is None:
         return error_response("bad_request")
@@ -40,7 +40,7 @@ def hide_category(place_id, place):
 
 # 
 @check_user_permission()
-def position_category(place_id, place):
+def position_category(place_id):
     item_1 = request.args.get("item_1") or None
     item_2 = request.args.get("item_2") or None
 

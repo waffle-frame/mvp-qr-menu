@@ -8,7 +8,7 @@ from utils.user_decorator import check_user_permission
 
 
 @check_user_permission()
-def create_category(place_id, place):
+def create_category(place_id):
     text_json = request.get_data()
     try:
         form = jloads(text_json)

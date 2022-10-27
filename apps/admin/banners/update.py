@@ -10,7 +10,7 @@ from utils.user_decorator import check_user_permission
 
 
 @check_user_permission()
-def update_banner(place_id, place):
+def update_banner(place_id):
     # Try get banner name and banner photo as file
     try:
         banner_id = request.form["id"]
@@ -33,7 +33,6 @@ def update_banner(place_id, place):
     # Create new name and save file
     banner_photo_path = f"{place}/banners/{randint(10000, 99999)}_{banner_photo.filename}"
     banner_photo.save(MEDIA_DIR + banner_photo_path)
-    
     
     # Update data
     banner.name = banner_name

@@ -18,6 +18,7 @@ class Food(BaseModel):
     time_for_preparing = FloatField()
     weight = IntegerField()
     price = FloatField()
+    place = ForeignKeyField(Places)
     hide = BooleanField(default=False)
     position = IntegerField()
 

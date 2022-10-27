@@ -6,6 +6,7 @@ from flask_jwt_extended import get_jwt_identity
 from flask_jwt_extended import create_access_token
 
 from apps.admin.auth.auth import admin_auth
+from apps.admin.food.blueprint import admin_food
 from apps.admin.banners.blueprint import admin_banner
 from apps.admin.food_categories.blueprint import admin_food_categories
 
@@ -19,9 +20,10 @@ app.config["SECRET_KEY"] = SECRET_KEY
 app.config["JWT_SECRET_KEY"] = JWT_SECRET_KEY
 
 app.register_blueprint(admin_auth)
+app.register_blueprint(admin_food)
 app.register_blueprint(admin_banner)
 app.register_blueprint(admin_food_categories)
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port="5000", debug=True)

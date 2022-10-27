@@ -1,7 +1,9 @@
+from datetime import timedelta
+from json import loads as jloads
+
 from flask import request
 from flask import Blueprint, render_template, abort, jsonify
 from flask_jwt_extended import create_access_token
-from json import loads as jloads
 
 from models.users import Users
 from models.places import Places
@@ -41,7 +43,10 @@ def auth(place):
 
     # Generate access token
     access_token = {
-        "access_token": create_access_token(identity=userdata.id)
+        "access_token": create_access_token(
+            identity=userdata.id, 
+            expires_delta=timedelta(days=30)
+        ),
     }
 
     return jsonify(access_token) 
